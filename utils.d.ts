@@ -1,6 +1,19 @@
-import { webpack } from 'next/dist/compiled/webpack/webpack';
-export declare function traverseModules(compilation: webpack.Compilation, callback: (mod: any, chunk: webpack.Chunk, chunkGroup: (typeof compilation.chunkGroups)[0], modId: string | number) => any, filterChunkGroup?: (chunkGroup: webpack.ChunkGroup) => boolean): void;
-export declare function forEachEntryModule(compilation: any, callback: ({ name, entryModule }: {
-    name: string;
-    entryModule: any;
-}) => void): void;
+export declare function isClientComponentEntryModule(mod: {
+    resource: string;
+    buildInfo?: any;
+}): any;
+export declare const regexCSS: RegExp;
+export declare function isCSSMod(mod: {
+    resource: string;
+    type?: string;
+    loaders?: {
+        loader: string;
+    }[];
+}): boolean;
+export declare function getActions(mod: {
+    resource: string;
+    buildInfo?: any;
+}): undefined | string[];
+export declare function generateActionId(filePath: string, exportName: string): string;
+export declare function encodeToBase64<T extends {}>(obj: T): string;
+export declare function decodeFromBase64<T extends {}>(str: string): T;
